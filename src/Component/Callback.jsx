@@ -8,6 +8,7 @@ function Callback() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
+console.log(code);
 
     if (code) {
       axios.post("https://senin-api.com/api/spotify/token", { code })
