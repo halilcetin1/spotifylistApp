@@ -4,7 +4,7 @@ import { FaSpotify } from "react-icons/fa";
 const App = () => {
   const handleLogin = () => {
     const clientId = "d3227bf513b84681ad6883d49308d1a8";
-    const redirectUri = "http://localhost:5173/callback"; // Veya production domain
+    const redirectUri = "https://spotifyapp.halilcetin.online/callback"; // Veya production domain
     const scope = "playlist-modify-public playlist-modify-private";
 
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(
