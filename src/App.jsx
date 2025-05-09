@@ -1,5 +1,7 @@
 import React from "react";
 import { FaSpotify } from "react-icons/fa";
+import { Route,Routes } from "react-router";
+import Callback from "./Component/Callback";
 
 const App = () => {
   const handleLogin = () => {
@@ -51,6 +53,10 @@ const App = () => {
         <FaSpotify size={24} />
         Giriş Yap ve Liste Oluştur
       </button>
+<Routes>
+  <Route path="/callback" element={<Callback/>}></Route>
+</Routes>
+
     </div>
   );
 };
