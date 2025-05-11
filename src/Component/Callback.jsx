@@ -12,6 +12,7 @@ const baseURL = import.meta.env.VITE_Base_Url;
     if (code) {
       const data =new FormData();
       data.append("code",code);
+     console.log(code);
       
       axios.post(`${baseURL}/Spotify/callback`, data)
         .then(res => {
