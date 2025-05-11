@@ -17,6 +17,7 @@ const App = () => {
   <Route path="/callback" element={<Callback/>}></Route>
   <Route path="/" element={<Home/>}></Route>
   <Route path="/playlist-create" element={<CreatePlaylist/>}></Route>
+
 </Routes>
 
     </div>

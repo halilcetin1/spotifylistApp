@@ -44,7 +44,7 @@ export default function Home() {
         <FaSpotify size={24} />
         Giriş Yap ve Liste Oluştur
       </button>
-
+<h1 style={{cursor:"pointer",marginTop:"100px"}}><a href="https://halilcetin.online">Halil Çetin</a></h1>
     </div>
   )
 }

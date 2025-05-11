@@ -3,30 +3,41 @@ import Home from "./Home";
 import axios from "axios";
 
 const CreatePlaylist = () => {
-  const basUrl="https://spotifylistappserver.onrender.com/api"
+ const baseURL = import.meta.env.VITE_Base_Url;
 
   const [artistText, setArtistText] = useState("");
   const [styleText, setStyleText] = useState("");
+  const [infos ,setInfos]=useState();
   const [error, setError] = useState("");
+const [isLoading,setIsLoading]=useState(false);
 const token=sessionStorage.getItem("accestoken");
 const playlistid=sessionStorage.getItem("playlistid");
 if(!token||!playlistid){
 return <Home/>
 }
-  
+ 
 
   const handleSubmit = async() => {
     if (!artistText.trim() || !styleText.trim()) {
       setError("Lütfen boş alanları doldurun");
     } else {
+      setIsLoading(true)
       const formdata=new FormData();
       formdata.append("artists",artistText);
       formdata.append("style",styleText);
       formdata.append("accesToken",token);
       formdata.append("playListId",playlistid);
-const res= await axios.post(`${basUrl}/RunnApp/run`,formdata);
-console.log(res);
-console.log(res.data);
+const res= await axios.post(`${baseURL}/RunnApp/run`,formdata);
+if(res.status==200){
+  setIsLoading(false)
+  setStyleText("")
+  setArtistText("");
+setInfos("Listeniz başarıyla oluşturuldu.")
+}else{
+    setIsLoading(false)
+
+setError("Liste oluşturulurken bir hata oluştu !")
+}
 
 
 
@@ -126,11 +137,18 @@ console.log(res.data);
         />
 
         <button style={buttonStyle} onClick={handleSubmit}>
-          Oluştur
+         {
+          isLoading ?"Oluşturuluyor...":"Oluştur"
+         } 
         </button>
 
         {error && <div style={errorStyle}>{error}</div>}
+        {infos && <div style={{color:"green"}}>{infos}</div>}
       </div>
+
+
+      <h1 style={{cursor:"pointer",marginTop:"100px"}}><a href="https://halilcetin.online">Halil Çetin</a></h1>
+
     </div>
   );
 };
