@@ -2,6 +2,7 @@ import React from "react";
 import { FaSpotify } from "react-icons/fa";
 import { Route,Routes } from "react-router";
 import Callback from "./Component/Callback";
+import CreatePlaylist from "./Component/CreatePlaylist";
 
 const App = () => {
   const handleLogin = () => {
@@ -55,6 +56,7 @@ const App = () => {
       </button>
 <Routes>
   <Route path="/callback" element={<Callback/>}></Route>
+  <Route path="/playlist-create" element={<CreatePlaylist/>}></Route>
 </Routes>
 
     </div>

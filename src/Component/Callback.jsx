@@ -13,15 +13,17 @@ console.log(code);
     if (code) {
       const data =new FormData();
       data.append("code",code);
-      //code
+      
       axios.post(`${basUrl}/Spotify/callback`, data)
         .then(res => {
           console.log("Token alındı:", res.data);
-          // JWT token varsa localStorage'a kaydet
-          localStorage.setItem("spotify_access_token", res.data.access_token);
-          navigate("/playlist");
+         
+          sessionStorage.setItem("accestoken", res.data.access_token);
+          sessionStorage.setItem("playlistid", res.data.playlist_id);
+          navigate("/playlist-create");
         })
         .catch(err => {
+          alert("bir hata oluştu");
           console.error("Token alma hatası", err);
         });
     }
