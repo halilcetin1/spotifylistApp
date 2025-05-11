@@ -12,8 +12,7 @@ const CreatePlaylist = () => {
 const [isLoading,setIsLoading]=useState(false);
 const token=sessionStorage.getItem("accestoken");
 const playlistid=sessionStorage.getItem("playlistid");
-console.log("token",token);
-console.log("playlist",playlistid);
+
 
 if(!token||!playlistid){
 return <Home/>
