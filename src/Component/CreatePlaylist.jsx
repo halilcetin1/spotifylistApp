@@ -147,8 +147,7 @@ setError("Liste oluşturulurken bir hata oluştu !")
       </div>
 
 
-      <h1 style={{cursor:"pointer",marginTop:"100px"}}><a href="https://halilcetin.online">Halil Çetin</a></h1>
-
+   <h1 style={{cursor:"pointer",marginTop:"100px"}}><a href="https://halilcetin.online" style={{color:"#fff"}}>Halil Çetin</a></h1>
     </div>
   );
 };
