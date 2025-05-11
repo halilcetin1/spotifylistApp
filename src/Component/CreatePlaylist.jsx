@@ -12,6 +12,9 @@ const CreatePlaylist = () => {
 const [isLoading,setIsLoading]=useState(false);
 const token=sessionStorage.getItem("accestoken");
 const playlistid=sessionStorage.getItem("playlistid");
+console.log("token",token);
+console.log("playlist",playlistid);
+
 if(!token||!playlistid){
 return <Home/>
 }
@@ -29,6 +32,7 @@ return <Home/>
       formdata.append("playListId",playlistid);
 const res= await axios.post(`${baseURL}/RunnApp/run`,formdata);
 if(res.status==200){
+  
   setIsLoading(false)
   setStyleText("")
   setArtistText("");
@@ -55,6 +59,7 @@ setError("Liste oluşturulurken bir hata oluştu !")
     justifyContent: "center",
     padding: "20px",
     fontFamily: "Arial, sans-serif",
+    flexDirection:"column"
   };
 
   const boxStyle = {
