@@ -24,7 +24,7 @@ return <Home/>
       formdata.append("style",styleText);
       formdata.append("accesToken",token);
       formdata.append("playListId",playlistid);
-const res= await axios.post(`${basUrl}/RunnApp/run`,formdata)
+const res= await axios.post(`${basUrl}/RunnApp/run`,formdata);
 console.log(res);
 console.log(res.data);
 
