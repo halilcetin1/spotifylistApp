@@ -14,17 +14,17 @@ const baseURL = import.meta.env.VITE_Base_Url;
       data.append("code",code);
      console.log(code);
       
-      // axios.post(`${baseURL}/Spotify/callback`, data)
-      //   .then(res => {
+      axios.post(`${baseURL}/Spotify/callback`, data)
+        .then(res => {
          
-      //     sessionStorage.setItem("accestoken", res.data.access_token);
-      //     sessionStorage.setItem("playlistid", res.data.playlist_id);
-      //     navigate("/playlist-create");
-      //   })
-      //   .catch(err => {
-      //     alert("bir hata oluştu");
-      //     console.error("Token alma hatası", err);
-      //   });
+          sessionStorage.setItem("accestoken", res.data.access_token);
+          sessionStorage.setItem("playlistid", res.data.playlist_id);
+          navigate("/playlist-create");
+        })
+        .catch(err => {
+          alert("bir hata oluştu");
+          console.error("Token alma hatası", err);
+        });
     }
   }, []);
 
